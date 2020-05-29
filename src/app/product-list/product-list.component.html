@@ -1,0 +1,17 @@
+
+<!--USO DE BINDING EVENT-->
+<h3>ACTIVIDADES </h3>
+<div *ngFor= "let proyecto of proyecto; index as productId">
+	<h3>
+		<a [title]="proyecto.actividad" [routerLink]="['/proyecto', productId]">
+			{{proyecto.actividad}}
+		</a>
+	</h3>
+	<p *ngIf="proyecto.description"> 
+		   {{proyecto.description}} 
+		</p>
+     <button (click)="share()">
+           Incribirse
+	 </button>
+    <app-product-alerts [proyecto]="proyecto" (notify)="onNotify()"></app-product-alerts>
+</div>
